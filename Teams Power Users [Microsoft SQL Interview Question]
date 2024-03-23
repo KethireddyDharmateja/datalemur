@@ -13,3 +13,10 @@ GROUP BY sender_id
 )
 
 SELECT * FROM CTE ORDER BY count_messages DESC LIMIT 2
+---------------------------------------------------------------------------------
+SELECT sender_id, count(*) as count_messages
+FROM messages
+WHERE EXTRACT(MONTH FROM sent_date) = 8 AND EXTRACT(Year FROM sent_date) =2022
+GROUP BY sender_id
+ORDER BY COUNT(*) DESC
+LIMIT 2
